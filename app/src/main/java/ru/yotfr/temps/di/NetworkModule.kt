@@ -7,6 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import ru.yotfr.temps.data.remote.api.GeocodingApi
 import ru.yotfr.temps.data.remote.api.WeatherApi
 import ru.yotfr.temps.data.remote.interceptor.ApiKeyInterceptor
 import javax.inject.Singleton
@@ -37,9 +38,29 @@ object NetworkModule {
 
     @Provides
     @Singleton
+    internal fun provideGeocodingRetrofitClient(
+        okHttpClient: OkHttpClient
+    ): Retrofit {
+        return Retrofit.Builder()
+            .client(okHttpClient)
+            .baseUrl("http://api.openweathermap.org/geo/1.0")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+    @Provides
+    @Singleton
     internal fun provideWeatherApi(
         retrofit: Retrofit
     ): WeatherApi {
         return retrofit.create(WeatherApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideGeocodingApi(
+        retrofit: Retrofit
+    ): GeocodingApi {
+        return retrofit.create(GeocodingApi::class.java)
     }
 }

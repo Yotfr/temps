@@ -15,7 +15,7 @@ interface WeatherApi {
         @Query("lang") language: String
     ): CurrentWeatherResponse
 
-    @GET("/weather")
+    @GET("/forecast")
     suspend fun getHourlyForecast(
         @Query("lat") latitude: Double,
         @Query("lon") longitude: Double,
