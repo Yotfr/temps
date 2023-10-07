@@ -69,6 +69,10 @@ dependencies {
     val hiltNavVersion = "1.0.0"
     val retrofitVersion = "2.9.0"
     val okHttpVersion = "4.11.0"
+    val lottieVersion = "6.1.0"
+
+    // Lottie
+    implementation("com.airbnb.android:lottie:$lottieVersion")
 
     // Desugaring
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
