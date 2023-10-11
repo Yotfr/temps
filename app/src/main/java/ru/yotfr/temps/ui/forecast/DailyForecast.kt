@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Surface
@@ -35,8 +34,6 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import ru.yotfr.temps.R
 import ru.yotfr.temps.domain.model.Units
-import ru.yotfr.temps.domain.model.weather.DailyWeather
-import ru.yotfr.temps.domain.model.weather.HourlyWeather
 import ru.yotfr.temps.ui.theme.TempsTheme
 import ru.yotfr.temps.ui.utils.animationRes
 import ru.yotfr.temps.ui.utils.degrees

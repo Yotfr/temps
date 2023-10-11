@@ -5,7 +5,6 @@ import ru.yotfr.temps.data.datasource.remote.mapper.mapRequest
 import ru.yotfr.temps.data.datasource.remote.mapper.mapToCurrentWeather
 import ru.yotfr.temps.data.datasource.remote.mapper.mapToDailyForecast
 import ru.yotfr.temps.domain.model.DataState
-import ru.yotfr.temps.domain.model.weather.FullForecast
 import ru.yotfr.temps.domain.model.place.Place
 import ru.yotfr.temps.domain.model.Units
 import ru.yotfr.temps.domain.repository.WeatherRepository

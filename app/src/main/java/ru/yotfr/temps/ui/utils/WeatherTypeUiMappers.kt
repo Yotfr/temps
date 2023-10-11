@@ -1,88 +1,92 @@
 package ru.yotfr.temps.ui.utils
 
 import ru.yotfr.temps.R
-import ru.yotfr.temps.domain.model.weather.WeatherType
+import ru.yotfr.temps.domain.model.weather.Condition
 
-fun WeatherType.animationRes(isDay: Boolean): Int = when (this) {
+fun Condition.animationRes(isDay: Boolean): Int = when (this) {
 
-    WeatherType.THUNDERSTORM_LIGHT_RAIN,
-    WeatherType.THUNDERSTORM_LIGHT_DRIZZLE -> R.raw.thunderstorms_rain
+    Condition.CLEAR_SKY -> if (isDay) R.raw.clear_day else R.raw.clear_night
 
-    WeatherType.THUNDERSTORM_RAIN,
-    WeatherType.THUNDERSTORM_DRIZZLE,
-    WeatherType.THUNDERSTORM_HEAVY_RAIN,
-    WeatherType.THUNDERSTORM_HEAVY_DRIZZLE -> R.raw.thunderstorms_overcast_rain
+    Condition.PARTLY_CLOUDY -> if (isDay) R.raw.partly_cloudy_day
+    else R.raw.partly_cloudy_night
 
-    WeatherType.LIGHT_THUNDERSTORM,
-    WeatherType.THUNDERSTORM -> R.raw.thunderstorms
-    WeatherType.HEAVY_THUNDERSTORM,
-    WeatherType.RAGGED_THUNDERSTORM -> R.raw.thunderstorms_overcast
+    Condition.CLOUDY -> R.raw.cloudy
 
-    WeatherType.LIGHT_DRIZZLE,
-    WeatherType.LIGHT_DRIZZLE_RAIN -> R.raw.drizzle
+    Condition.OVERCAST -> R.raw.overcast
 
-    WeatherType.DRIZZLE,
-    WeatherType.DRIZZLE_RAIN,
-    WeatherType.SHOWER_RAIN_AND_DRIZZLE,
-    WeatherType.SHOWER_DRIZZLE,
-    WeatherType.HEAVY_DRIZZLE,
-    WeatherType.HEAVY_DRIZZLE_RAIN,
-    WeatherType.HEAVY_SHOWER_RAIN_AND_DRIZZLE -> R.raw.overcast_drizzle
+    Condition.MIST -> R.raw.mist
 
-    WeatherType.LIGHT_RAIN,
-    WeatherType.LIGHT_SHOWER_RAIN -> R.raw.rain
+    Condition.PATCHY_LIGHT_RAIN,
+    Condition.PATCHY_RAIN_POSSIBLE,
+    Condition.PATCHY_FREEZING_DRIZZLE_POSSIBLE,
+    Condition.PATCHY_LIGHT_DRIZZLE,
+    Condition.LIGHT_RAIN_SHOWER -> if (isDay) R.raw.rain_day else R.raw.rain_night
 
-    WeatherType.MODERATE_RAIN,
-    WeatherType.SHOWER_RAIN,
-    WeatherType.HEAVY_RAIN,
-    WeatherType.VERY_HEAVY_RAIN,
-    WeatherType.EXTREME_RAIN,
-    WeatherType.HEAVY_SHOWER_RAIN,
-    WeatherType.RAGGED_SHOWER_RAIN -> R.raw.overcast_rain
+    Condition.PATCHY_LIGHT_SNOW,
+    Condition.PATCHY_SNOW_POSSIBLE,
+    Condition.PATCHY_MODERATE_SNOW,
+    Condition.PATCHY_HEAVY_SNOW,
+    Condition.LIGHT_SNOW_SHOWERS -> if (isDay) R.raw.snow_day else R.raw.snow_night
 
-    WeatherType.FREEZING_RAIN,
-    WeatherType.SLEET,
-    WeatherType.LIGHT_SHOWER_SLEET,
-    WeatherType.LIGHT_RAIN_AND_SNOW -> R.raw.sleet
+    Condition.PATCHY_SLEET_POSSIBLE,
+    Condition.LIGHT_SLEET_SHOWERS -> if (isDay) R.raw.sleet_day else R.raw.sleet_night
 
-    WeatherType.LIGHT_SNOW,
-    WeatherType.LIGHT_SHOWER_SNOW -> R.raw.snow
+    Condition.THUNDERY_OUTBREAKS_POSSIBLE -> if (isDay) R.raw.thunder_day
+    else R.raw.thunder_night
 
-    WeatherType.SNOW,
-    WeatherType.SHOWER_SNOW,
-    WeatherType.HEAVY_SNOW,
-    WeatherType.HEAVY_SHOWER_SNOW -> R.raw.overcast_snow
+    Condition.BLOWING_SNOW,
+    Condition.BLIZZARD -> R.raw.wind_snow
 
-    WeatherType.SHOWER_SLEET,
-    WeatherType.RAIN_AND_SNOW -> R.raw.overcast_sleet
+    Condition.FOG,
+    Condition.FREEZING_FOG -> R.raw.fog
 
-    WeatherType.MIST -> R.raw.mist
-    WeatherType.SMOKE -> R.raw.smoke
-    WeatherType.HAZE -> R.raw.haze
-    WeatherType.SAND_OR_DUST_WHIRLS -> R.raw.dust_wind
-    WeatherType.FOG -> R.raw.fog
-    WeatherType.SAND -> R.raw.dust
-    WeatherType.DUST -> R.raw.dust
-    WeatherType.VOLCANIC_ASH -> R.raw.smoke
+    Condition.LIGHT_DRIZZLE,
+    Condition.FREEZING_DRIZZLE -> R.raw.drizzle
 
-    WeatherType.SQUALLS,
-    WeatherType.TORNADO -> R.raw.tornado
+    Condition.HEAVY_FREEZING_DRIZZLE -> R.raw.heavy_drizzle
 
-    WeatherType.CLEAR_SKY -> {
-        if (isDay) R.raw.clear_day else R.raw.clear_night
-    }
+    Condition.LIGHT_RAIN,
+    Condition.MODERATE_RAIN_AT_TIMES,
+    Condition.LIGHT_FREEZING_RAIN -> R.raw.rain
 
-    WeatherType.FEW_CLOUDS -> {
-        if (isDay) R.raw.clear_day else R.raw.clear_night
-    }
+    Condition.MODERATE_RAIN,
+    Condition.HEAVY_RAIN_AT_TIMES,
+    Condition.HEAVY_RAIN,
+    Condition.MODERATE_OR_HEAVY_FREEZING_RAIN -> R.raw.heavy_rain
 
-    WeatherType.SCATTERED_CLOUDS -> {
-        if (isDay) R.raw.partly_cloudy_day else R.raw.partly_cloudy_night
-    }
+    Condition.LIGHT_SLEET -> R.raw.sleet
 
-    WeatherType.BROKEN_CLOUDS -> {
-        if (isDay) R.raw.overcast_day else R.raw.overcast_night
-    }
+    Condition.MODERATE_OR_HEAVY_SLEET -> R.raw.heavy_sleet
 
-    WeatherType.OVERCAST_CLOUDS -> R.raw.overcast
+    Condition.LIGHT_SNOW -> R.raw.snow
+
+    Condition.MODERATE_SNOW,
+    Condition.HEAVY_SNOW -> R.raw.heavy_snow
+
+    Condition.ICE_PELLETS,
+    Condition.LIGHT_SHOWERS_OF_ICE_PELLETS -> if (isDay) R.raw.ice_pellets_day
+    else R.raw.ice_pellets_night
+
+    Condition.MODERATE_OR_HEAVY_RAIN_SHOWER,
+    Condition.TORRENTIAL_RAIN_SHOWER -> if (isDay) R.raw.rain_shower_day
+    else R.raw.rain_shower_night
+
+    Condition.MODERATE_OR_HEAVY_SLEET_SHOWERS -> if (isDay) R.raw.sleet_shower_day
+    else R.raw.sleet_shower_night
+
+    Condition.MODERATE_OR_HEAVY_SNOW_SHOWERS -> if (isDay) R.raw.snow_shower_day
+    else R.raw.snow_shower_night
+
+    Condition.MODERATE_OR_HEAVY_SHOWERS_OF_ICE_PELLETS -> if (isDay) R.raw.heavy_ice_pellets_day
+    else R.raw.heavy_ice_pellets_night
+
+    Condition.PATCHY_LIGHT_RAIN_WITH_THUNDER -> if (isDay) R.raw.thunderstorms_rain_day
+    else R.raw.thunderstorms_rain_night
+
+    Condition.MODERATE_OR_HEAVY_RAIN_WITH_THUNDER -> R.raw.thunderstorms_overcast_rain
+
+    Condition.PATCHY_LIGHT_SNOW_WITH_THUNDER -> if (isDay) R.raw.thunderstorm_snow_day
+    else R.raw.thunderstorm_snow_night
+
+    Condition.MODERATE_OR_HEAVY_SNOW_WITH_THUNDER -> R.raw.thunderstorms_overcast_snow
 }

@@ -19,7 +19,6 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import ru.yotfr.temps.domain.model.Units
-import ru.yotfr.temps.domain.model.weather.FullForecast
 import ru.yotfr.temps.ui.theme.TempsTheme
 import ru.yotfr.temps.ui.utils.animationRes
 import ru.yotfr.temps.ui.utils.degrees
