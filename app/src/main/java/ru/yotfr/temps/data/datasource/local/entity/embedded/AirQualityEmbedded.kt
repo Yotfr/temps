@@ -1,3 +1,3 @@
 package ru.yotfr.temps.data.datasource.local.entity.embedded
 
-data class CurrentWeatherEmbedded()
+data class AirQualityEmbedded()

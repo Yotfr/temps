@@ -1,3 +1,3 @@
 package ru.yotfr.temps.data.datasource.local.entity
 
-data class PlaceEntity()
+data class ForecastEntity()
