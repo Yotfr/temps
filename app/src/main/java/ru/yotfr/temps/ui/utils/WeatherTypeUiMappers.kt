@@ -1,7 +1,7 @@
 package ru.yotfr.temps.ui.utils
 
 import ru.yotfr.temps.R
-import ru.yotfr.temps.domain.model.WeatherType
+import ru.yotfr.temps.domain.model.weather.WeatherType
 
 fun WeatherType.animationRes(isDay: Boolean): Int = when (this) {
 
@@ -9,15 +9,14 @@ fun WeatherType.animationRes(isDay: Boolean): Int = when (this) {
     WeatherType.THUNDERSTORM_LIGHT_DRIZZLE -> R.raw.thunderstorms_rain
 
     WeatherType.THUNDERSTORM_RAIN,
-    WeatherType.THUNDERSTORM_DRIZZLE -> R.raw.thunderstorms_overcast_rain
-
+    WeatherType.THUNDERSTORM_DRIZZLE,
     WeatherType.THUNDERSTORM_HEAVY_RAIN,
-    WeatherType.THUNDERSTORM_HEAVY_DRIZZLE -> R.raw.thunderstorms_extreme_rain
+    WeatherType.THUNDERSTORM_HEAVY_DRIZZLE -> R.raw.thunderstorms_overcast_rain
 
-    WeatherType.LIGHT_THUNDERSTORM -> R.raw.thunderstorms
-    WeatherType.THUNDERSTORM -> R.raw.thunderstorms_overcast
-    WeatherType.HEAVY_THUNDERSTORM -> R.raw.thunderstorms_extreme
-    WeatherType.RAGGED_THUNDERSTORM -> R.raw.thunderstorms_extreme
+    WeatherType.LIGHT_THUNDERSTORM,
+    WeatherType.THUNDERSTORM -> R.raw.thunderstorms
+    WeatherType.HEAVY_THUNDERSTORM,
+    WeatherType.RAGGED_THUNDERSTORM -> R.raw.thunderstorms_overcast
 
     WeatherType.LIGHT_DRIZZLE,
     WeatherType.LIGHT_DRIZZLE_RAIN -> R.raw.drizzle
@@ -25,23 +24,21 @@ fun WeatherType.animationRes(isDay: Boolean): Int = when (this) {
     WeatherType.DRIZZLE,
     WeatherType.DRIZZLE_RAIN,
     WeatherType.SHOWER_RAIN_AND_DRIZZLE,
-    WeatherType.SHOWER_DRIZZLE -> R.raw.overcast_drizzle
-
+    WeatherType.SHOWER_DRIZZLE,
     WeatherType.HEAVY_DRIZZLE,
     WeatherType.HEAVY_DRIZZLE_RAIN,
-    WeatherType.HEAVY_SHOWER_RAIN_AND_DRIZZLE -> R.raw.extreme_drizzle
+    WeatherType.HEAVY_SHOWER_RAIN_AND_DRIZZLE -> R.raw.overcast_drizzle
 
     WeatherType.LIGHT_RAIN,
     WeatherType.LIGHT_SHOWER_RAIN -> R.raw.rain
 
     WeatherType.MODERATE_RAIN,
-    WeatherType.SHOWER_RAIN -> R.raw.overcast_rain
-
+    WeatherType.SHOWER_RAIN,
     WeatherType.HEAVY_RAIN,
     WeatherType.VERY_HEAVY_RAIN,
     WeatherType.EXTREME_RAIN,
     WeatherType.HEAVY_SHOWER_RAIN,
-    WeatherType.RAGGED_SHOWER_RAIN -> R.raw.extreme_rain
+    WeatherType.RAGGED_SHOWER_RAIN -> R.raw.overcast_rain
 
     WeatherType.FREEZING_RAIN,
     WeatherType.SLEET,
@@ -52,10 +49,9 @@ fun WeatherType.animationRes(isDay: Boolean): Int = when (this) {
     WeatherType.LIGHT_SHOWER_SNOW -> R.raw.snow
 
     WeatherType.SNOW,
-    WeatherType.SHOWER_SNOW -> R.raw.overcast_snow
-
+    WeatherType.SHOWER_SNOW,
     WeatherType.HEAVY_SNOW,
-    WeatherType.HEAVY_SHOWER_SNOW -> R.raw.extreme_snow
+    WeatherType.HEAVY_SHOWER_SNOW -> R.raw.overcast_snow
 
     WeatherType.SHOWER_SLEET,
     WeatherType.RAIN_AND_SNOW -> R.raw.overcast_sleet

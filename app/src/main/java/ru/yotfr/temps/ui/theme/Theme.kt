@@ -9,6 +9,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
@@ -37,6 +38,12 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+object TempsTheme{
+    val typography: TempTypography
+        @Composable
+        get() = LocalTypography.current
+}
+
 @Composable
 fun TempsTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -53,6 +60,7 @@ fun TempsTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+    val typography = TempTypography()
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
@@ -61,10 +69,13 @@ fun TempsTheme(
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
-
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    CompositionLocalProvider(
+        LocalTypography provides typography
+    ) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = Typography,
+            content = content
+        )
+    }
 }

@@ -7,9 +7,11 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.yotfr.temps.data.remote.api.GeocodingApi
-import ru.yotfr.temps.data.remote.api.WeatherApi
-import ru.yotfr.temps.data.remote.interceptor.ApiKeyInterceptor
+import ru.yotfr.temps.data.datasource.remote.api.CurrentWeatherApi
+import ru.yotfr.temps.data.datasource.remote.api.ForecastApi
+import ru.yotfr.temps.data.datasource.remote.api.SearchApi
+import ru.yotfr.temps.data.datasource.remote.interceptor.ApiKeyInterceptor
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -26,41 +28,37 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    internal fun provideWeatherRetrofitClient(
+    internal fun provideRetrofitClient(
         okHttpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("https://api.openweathermap.org/data/2.5")
+            .baseUrl("http://api.weatherapi.com/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
     @Provides
     @Singleton
-    internal fun provideGeocodingRetrofitClient(
-        okHttpClient: OkHttpClient
-    ): Retrofit {
-        return Retrofit.Builder()
-            .client(okHttpClient)
-            .baseUrl("http://api.openweathermap.org/geo/1.0")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+    internal fun provideCurrentWeatherApi(
+        retrofit: Retrofit
+    ): CurrentWeatherApi {
+        return retrofit.create(CurrentWeatherApi::class.java)
     }
 
     @Provides
     @Singleton
-    internal fun provideWeatherApi(
+    internal fun provideForecastApi(
         retrofit: Retrofit
-    ): WeatherApi {
-        return retrofit.create(WeatherApi::class.java)
+    ): ForecastApi {
+        return retrofit.create(ForecastApi::class.java)
     }
 
     @Provides
     @Singleton
-    internal fun provideGeocodingApi(
+    internal fun provideSearchApi(
         retrofit: Retrofit
-    ): GeocodingApi {
-        return retrofit.create(GeocodingApi::class.java)
+    ): SearchApi {
+        return retrofit.create(SearchApi::class.java)
     }
 }

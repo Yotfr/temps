@@ -1,10 +1,84 @@
 package ru.yotfr.temps.ui.theme
 
 import androidx.compose.material3.Typography
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import ru.yotfr.temps.R
+import javax.annotation.concurrent.Immutable
+
+val Oswald = FontFamily(
+    fonts = listOf(
+        Font(
+            resId = R.font.oswald_extra_light,
+            weight = FontWeight.ExtraLight
+        ),
+        Font(
+            resId = R.font.oswald_light,
+            weight = FontWeight.Light
+        ),
+        Font(
+            resId = R.font.oswald_regular,
+            weight = FontWeight.Normal
+
+        ),
+        Font(
+            resId = R.font.oswald_medium,
+            weight = FontWeight.Medium
+        ),
+        Font(
+            resId = R.font.oswald_semi_bold,
+            weight = FontWeight.SemiBold
+        ),
+        Font(
+            resId = R.font.oswald_bold,
+            weight = FontWeight.Bold
+        )
+    )
+)
+
+@Immutable
+data class TempTypography(
+    val displayBold: TextStyle = TextStyle(
+        fontSize = 57.sp,
+        lineHeight = 64.sp,
+        fontWeight = FontWeight.Bold,
+        fontFamily = Oswald
+    ),
+    val mediumHeadline: TextStyle = TextStyle(
+        fontSize = 26.sp,
+        lineHeight = 32.sp,
+        fontWeight = FontWeight.Normal,
+        fontFamily = Oswald
+    ),
+    val smallHeadline: TextStyle = TextStyle(
+        fontSize = 24.sp,
+        lineHeight = 32.sp,
+        fontWeight = FontWeight.Normal,
+        fontFamily = Oswald
+    ),
+    val bodySmallLight: TextStyle = TextStyle(
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        fontWeight = FontWeight.Light,
+        fontFamily = Oswald
+    ),
+    val bodySmallRegular: TextStyle = TextStyle(
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        fontWeight = FontWeight.Normal,
+        fontFamily = Oswald
+    ),
+    val headline: TextStyle = TextStyle(
+        fontSize = 18.sp,
+        fontFamily = Oswald
+    )
+)
+
+val LocalTypography = compositionLocalOf { TempTypography() }
 
 // Set of Material typography styles to start with
 val Typography = Typography(

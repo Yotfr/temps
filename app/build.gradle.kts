@@ -71,9 +71,18 @@ dependencies {
     val retrofitVersion = "2.9.0"
     val okHttpVersion = "4.11.0"
     val lottieVersion = "6.1.0"
+    val fusedLocationProviderVersion = "21.0.1"
+    val gsonVersion = "2.9.0"
+
+    // Gson
+    implementation("com.google.code.gson:gson:$gsonVersion")
+
+    // Fused location provider
+    implementation("com.google.android.gms:play-services-location:$fusedLocationProviderVersion")
 
     // Lottie
     implementation("com.airbnb.android:lottie:$lottieVersion")
+    implementation("com.airbnb.android:lottie-compose:$lottieVersion")
 
     // Desugaring
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
@@ -118,6 +127,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material")
     androidTestImplementation(platform("androidx.compose:compose-bom:$composeBomVersion"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")

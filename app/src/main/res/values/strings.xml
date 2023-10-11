@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">temps</string>
+
+    <string name="forecast">Forecast</string>
+    <string name="feels_like">Feels like</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="visibility">Visibility</string>
+    <string name="pressureUnits">hPa</string>
+    <string name="humidityUnits">%</string>
+    <string name="kilometers">km</string>
+    <string name="miles">mi</string>
 </resources>
