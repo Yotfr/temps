@@ -1,8 +1,7 @@
 package ru.yotfr.temps.domain.location
 
-import ru.yotfr.temps.domain.model.DataState
-import ru.yotfr.temps.domain.model.place.Location
+import ru.yotfr.temps.domain.model.Coordinates
 
 interface LocationProvider {
-    suspend fun getCurrentLocation(): DataState<Location>
+    suspend fun getCurrentCoordinates(): Coordinates?
 }

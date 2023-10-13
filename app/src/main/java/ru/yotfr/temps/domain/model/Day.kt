@@ -1,8 +1,6 @@
-package ru.yotfr.temps.data.datasource.local.entity.embedded
+package ru.yotfr.temps.domain.model
 
-import androidx.room.Embedded
-
-data class DayEmbedded(
+data class Day(
     val maxTempC: Double,
     val maxTempF: Double,
     val minTempC: Double,
@@ -16,13 +14,11 @@ data class DayEmbedded(
     val totalSnowCm: Double,
     val avgVisibilityKm: Double,
     val avgVisibilityMiles: Double,
-    val dailyWillItRain: Int,
+    val dailyWillItRain: Boolean,
     val dailyChanceOfRain: Int,
-    val dailyWillItSnow: Int,
+    val dailyWillItSnow: Boolean,
     val dailyChanceOfSnow: Int,
-    @Embedded
-    val condition: ConditionEmbedded,
+    val condition: Condition,
     val uv: Double,
-    @Embedded
-    val airQuality: AirQualityEmbedded
+    val airQuality: AirQuality
 )

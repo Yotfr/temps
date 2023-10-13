@@ -1,19 +1,18 @@
-package ru.yotfr.temps.data.datasource.local.entity.embedded
+package ru.yotfr.temps.domain.model
 
-import androidx.room.Embedded
+import java.time.LocalDateTime
 
-data class HourEmbedded(
+data class Hour(
     val timeEpoch: Int,
-    val time: String,
+    val time: LocalDateTime,
     val tempC: Double,
     val tempF: Double,
-    val isDay: Int,
-    @Embedded
-    val condition: ConditionEmbedded,
+    val isDay: Boolean,
+    val condition: Condition,
     val windMph: Double,
     val windKph: Double,
     val windDegree: Int,
-    val windDirection: String,
+    val windDirection: WindDirection,
     val pressureMb: Double,
     val pressureIn: Double,
     val precipMm: Double,
@@ -28,15 +27,14 @@ data class HourEmbedded(
     val heatIndexF: Double,
     val dewPointC: Double,
     val dewPointF: Double,
-    val willItRain: Int,
+    val willItRain: Boolean,
     val chanceOfRain: Int,
-    val willItSnow: Int,
+    val willItSnow: Boolean,
     val chanceOfSnow: Int,
     val visibilityKm: Double,
     val visibilityMiles: Double,
     val uvIndex: Double,
     val gustMph: Double,
     val gustKph: Double,
-    @Embedded
-    val airQuality: AirQualityEmbedded
+    val airQuality: AirQuality
 )

@@ -1,8 +1,9 @@
 package ru.yotfr.temps.domain.repository
 
 import ru.yotfr.temps.domain.model.DataState
-import ru.yotfr.temps.domain.model.place.Place
+import ru.yotfr.temps.domain.model.ForecastModel
+import ru.yotfr.temps.domain.model.PlaceModel
 
 interface WeatherRepository {
-    suspend fun getFullForecastForPlace(place: Place): DataState<FullForecast>
+    suspend fun getForecastForPlace(placeModel: PlaceModel): DataState<ForecastModel>
 }

@@ -2,15 +2,19 @@ package ru.yotfr.temps.data.datasource.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import ru.yotfr.temps.data.datasource.local.dao.WeatherCacheDao
-import ru.yotfr.temps.data.datasource.local.entity.FullForecastEntity
+import androidx.room.TypeConverters
+import ru.yotfr.temps.data.datasource.local.converter.TempsTypeConverters
+import ru.yotfr.temps.data.datasource.local.entity.ForecastEntity
+import ru.yotfr.temps.data.datasource.local.entity.PlaceEntity
 
 @Database(
     entities = [
-        FullForecastEntity::class
+        ForecastEntity::class,
+        PlaceEntity::class
     ],
     version = 1
 )
+@TypeConverters(TempsTypeConverters::class)
 abstract class TempsDatabase : RoomDatabase() {
-    abstract fun weatherCacheDao(): WeatherCacheDao
+    abstract fun weatherCacheDao(): ForecastDao
 }

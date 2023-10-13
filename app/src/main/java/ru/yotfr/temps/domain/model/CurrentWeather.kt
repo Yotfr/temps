@@ -1,19 +1,17 @@
-package ru.yotfr.temps.data.datasource.local.entity.embedded
+package ru.yotfr.temps.domain.model
 
-import androidx.room.Embedded
-
-data class CurrentWeatherEmbedded(
+import java.time.LocalDateTime
+data class CurrentWeather(
     val updateTimeEpoch: Int,
-    val updateTime: String,
+    val updateTime: LocalDateTime,
     val tempC: Double,
     val tempF: Double,
-    val isDay: Int,
-    @Embedded
-    val condition: ConditionEmbedded,
+    val isDay: Boolean,
+    val condition: Condition,
     val windMph: Double,
     val windKph: Double,
     val windDegree: Int,
-    val windDirection: String,
+    val windDirection: WindDirection,
     val pressureMb: Double,
     val pressureIn: Double,
     val precipMm: Double,
@@ -27,6 +25,5 @@ data class CurrentWeatherEmbedded(
     val uvIndex: Double,
     val gustMph: Double,
     val gustKph: Double,
-    @Embedded
-    val airQuality: AirQualityEmbedded
+    val airQuality: AirQuality
 )

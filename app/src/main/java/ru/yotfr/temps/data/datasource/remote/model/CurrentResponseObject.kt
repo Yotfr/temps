@@ -12,7 +12,7 @@ data class CurrentResponseObject(
     @SerializedName("temp_f")
     val tempF: Double,
     @SerializedName("is_day")
-    val isDay: Double,
+    val isDay: Int,
     val condition: ConditionResponseObject,
     @SerializedName("wind_mph")
     val windMph: Double,

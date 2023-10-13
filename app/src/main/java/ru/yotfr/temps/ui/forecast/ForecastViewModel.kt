@@ -1,6 +1,5 @@
 package ru.yotfr.temps.ui.forecast
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,7 +11,6 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import ru.yotfr.temps.domain.model.on
-import ru.yotfr.temps.domain.usecase.GetWeatherUseCase
 import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)

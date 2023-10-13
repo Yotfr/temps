@@ -1,6 +1,6 @@
-package ru.yotfr.temps.data.datasource.local.entity.embedded
+package ru.yotfr.temps.domain.model
 
-data class AlertEmbedded(
+data class Alert(
     val headline: String,
     val msgType: String,
     val severity: String,
